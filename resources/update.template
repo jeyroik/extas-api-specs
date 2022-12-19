@@ -1,0 +1,9 @@
+$item = $this->getItem();
+            $data = $this->getRequestData();
+
+            $this->before($data);
+            $this->updateData($item, $data);
+            $this->after($item);
+
+            {execute-before-response}
+            $this->setResponseData($item->__toArray());

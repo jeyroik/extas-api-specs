@@ -1,0 +1,29 @@
+{
+  "name": "jeyroik/extas-api-specs",
+  "description": "Extas API specs package",
+  "require": {
+    "slim/slim": "^4.5",
+    "slim/psr7": "^1.1",
+    "jeyroik/extas-foundation": "6.*",
+    "jeyroik/extas-api": "2.*",
+    "jeyroik/extas-config-php": "0.*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9",
+    "vlucas/phpdotenv": "^5.5",
+    "phpstan/phpstan": "0.*",
+    "jeyroik/extas-snuffbox": "1.*",
+    "ramsey/uuid": "4.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "extas\\": "src/",
+      "tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "up": "vendor/bin/extas init && vendor/bin/extas install",
+    "test": "vendor/bin/phpunit --testdox --coverage-clover=coverage.xml --whitelist=src tests",
+    "stan": "vendor/bin/phpstan analyse -l 5 src"
+  }
+}

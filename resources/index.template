@@ -1,0 +1,8 @@
+$items = $this->getItems();
+
+            $this->before($items);
+            $this->listData($items);
+            $this->after($items);
+
+            {execute-before-response}
+            $this->setResponseData($items);
