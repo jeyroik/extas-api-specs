@@ -1,0 +1,39 @@
+<?php
+namespace {namespace};
+
+use Psr\Http\Message\ResponseInterface;
+{use-head}
+
+class Route{uc-name} extends {dispatcher}
+{
+    {use-class}
+
+    protected string $repoName = '{table}';
+
+    public function execute(): ResponseInterface
+    {
+        $data = $this->getRequestData();
+
+        {execute-before}
+        try {
+            {execute}
+        } catch (\Exception $e) {
+            $message = $e->getMessage();
+            {execute-error}
+            $this->setResponseData($data, $message);
+        }
+        {execute-after}
+
+        return $this->response;
+    }
+
+    public function help(): ResponseInterface
+    {
+        {help-before}
+        {help}
+        {help-after}
+        return $this->response;
+    }
+
+    {methods}
+}

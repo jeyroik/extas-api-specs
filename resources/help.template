@@ -1,0 +1,6 @@
+$route = $this->getRoute();
+        $specs = $this->routesSpecs()->one([
+            IRouteSpec::FIELD__NAME => RouteSpec::constructName($route->getMethod(), $route->getName())
+        ]);
+
+        $this->setResponseData($specs->getSpecs());

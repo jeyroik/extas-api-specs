@@ -1,0 +1,7 @@
+$item = $this->getItem();
+            $this->before($item);
+            $this->deleteData($item);
+            $this->after($item);
+
+            {execute-before-response}
+            $this->setResponseData($item->__toArray());

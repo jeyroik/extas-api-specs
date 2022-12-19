@@ -1,0 +1,29 @@
+{
+  "name": "jeyroik/extas-foundation",
+  "description": "Extas foundation package",
+  "require": {
+    "league/container": "4.*",
+    "jeyroik/extas-base": "2.*",
+    "jeyroik/extas-exceptions": "0.*",
+    "ext-json": "*",
+    "symfony/finder": "5.*",
+    "symfony/console": "5.*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9",
+    "vlucas/phpdotenv": "^5.5",
+    "jeyroik/extas-snuffbox": "1.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "extas\\": "src/",
+      "tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit --testdox --coverage-clover=coverage.xml --whitelist=src tests"
+  },
+  "bin": [
+    "src/bin/extas", "src/bin/extas-extra"
+  ]
+}

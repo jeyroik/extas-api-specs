@@ -1,0 +1,10 @@
+$this->before($data);
+
+            $class = $this->{$this->repoName}()->getItemClass();
+            $item  = new $class($data);
+            $item  = $this->{$this->repoName}()->create($item);
+            
+            $this->after($item);
+
+            {execute-before-response}
+            $this->setResponseData($item->__toArray());

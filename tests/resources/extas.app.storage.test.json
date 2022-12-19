@@ -1,0 +1,113 @@
+{
+    "name": "test/app",
+    "open_api_specs": [
+        {
+            "generation": {
+                "name": "oasExample",    
+                "operation": "create",
+                "table": "oas_examples",
+                "namespace": "routes",
+                "dispatcher": "\\extas\\components\\routes\\dispatchers\\JsonDispatcher",
+                "code": {
+                    "execute-before": "//execute-before",
+                    "execute-before-response": "//execute-before-response",
+                    "execute-after": "//execute-after",
+                    "execute-error": "//execute-error",
+                    "help-before": "//help-before",
+                    "help-after": "//help-after",
+                    "use-head": "//use-head:\nuse \\extas\\interfaces\\api\\specs\\IRouteSpec;",
+                    "use-class": "//use-class",
+                    "methods": "$CWD/resources/where.php"
+                }
+            },
+            "route": {
+                "name": "/test/",
+                "title": "Test route",
+                "description": "Route for tests",
+                "method": "post"
+            },
+            "specs": {
+                "components": {
+                    "schemas": {
+                        "Test": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "description": "Identificator, UUID",
+                                    "type": "string",
+                                    "size": 36
+                                },
+                                "name": {
+                                    "description": "Test name",
+                                    "type": "string",
+                                    "minimum": 1,
+                                    "maximum": 64
+                                }
+                            }
+                        },
+                        "ErrorBadRequest": {
+                            "type": "object",
+                            "properties": {
+                                "error": {
+                                    "description": "Error information",
+                                    "type": "object",
+                                    "properties": {
+                                        "code": {
+                                            "description": "Error code",
+                                            "type": "integer",
+                                            "format": "int32",
+                                            "example": -4041
+                                        },
+                                        "message": {
+                                            "description": "Error message",
+                                            "type": "string",
+                                            "example": "Invalid data"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "request": {
+                    "description": "Create Test",
+                    "content": {
+                        "application/json": {
+                            "schema":{
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "description": "",
+                                        "in": "body",
+                                        "required": true,                            
+                                        "schema": {
+                                            "type": "string",
+                                            "minimum": 1,
+                                            "maximum": 64
+                                        },
+                                        "example": "any text"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "response": {
+                    "200": {
+                        "description": "Return Test object",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Test"
+                                }
+                            }
+                        }                        
+                    },
+                    "400": {
+                        "$ref": "#/components/schemas/ErrorBadRequest"
+                    }
+                }
+            }
+        }
+    ]
+}
