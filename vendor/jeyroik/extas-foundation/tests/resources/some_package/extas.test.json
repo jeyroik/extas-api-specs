@@ -1,8 +1,0 @@
-{
-    "name": "some/package",
-    "entries": [
-        {
-            "class": "package__some"
-        }
-    ]
-}

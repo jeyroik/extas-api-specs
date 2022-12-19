@@ -1,9 +1,0 @@
-{
-  "name": "jeyroik/extas-exceptions",
-  "description": "Exceptions package for Extas",
-  "autoload": {
-    "psr-4": {
-      "extas\\": "src/"
-    }
-  }
-}

@@ -1,4 +1,0 @@
-
-        foreach($this->getPluginsByStage('{table_name}.all.as.array.after') as $plugin) {
-            $plugin($result);
-        }
