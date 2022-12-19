@@ -2,7 +2,6 @@
 namespace tests\api;
 
 use extas\components\commands\GenerateRoutesByOpenApiSpecsCommand;
-use extas\components\commands\InstallSpecsCommand;
 use extas\components\console\TSnuffConsole;
 use extas\components\extensions\TExtendable;
 use extas\components\repositories\TSnuffRepository;
@@ -91,5 +90,7 @@ class RouteGeneratorTest extends TestCase
 
         $this->assertCount(1, $this->routes()->allAsArray([]));
         $this->assertCount(1, $specs);
+
+        unlink(__DIR__ . '/../tmp/RouteOasexample.php');
     }
 }
